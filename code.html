@@ -158,14 +158,14 @@ function updateUI(playlist) {
 
 window.updateUI=updateUI
 
-function setupMusicPlayer() {
+function setupMusicPlayer() { //you can fiddle with this as much as youd like, or just copy paste another player in instead
 	playlist = new Playlist(); 
 	const song1 = new Song(
-		"My Ordinary Life",
-		"The Living Tombstone",
-		"My Ordinary Life",
-		"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/my_ordinary_life.png",
-		"https://audio.jukehost.co.uk/8PAB6FdSe9I79dDG7xMYe5R78AZZAi2D"
+		"song",
+		"artist",
+		"album",
+		"null", //image
+		"null" //music file, you probably dont need this
 	);
 	
 	playlist.addSong(song1);
@@ -191,7 +191,6 @@ function setupMusicPlayer() {
 	
 	const titleElement = document.createElement("p");
 	titleElement.id = "title";
-	titleElement.style.fontFamily = 'Roboto';
 	titleElement.style.fontWeight = 500;
 	titleElement.style.fontSize = '14px';
 	titleElement.style.color = "#636363";
@@ -199,7 +198,6 @@ function setupMusicPlayer() {
 	
 	const artistElement = document.createElement("p");
 	artistElement.id = "artist";
-	artistElement.style.fontFamily = 'Roboto';
 	artistElement.style.fontWeight = 400;
 	artistElement.style.fontSize = '14px';
 	artistElement.style.color = "#636363";
@@ -207,7 +205,6 @@ function setupMusicPlayer() {
 
 	const albumElement = document.createElement("p");
 	albumElement.id = "album";
-	albumElement.style.fontFamily = 'Roboto';
 	albumElement.style.fontWeight = 400;
 	albumElement.style.fontSize = '14px';
 	albumElement.style.color = "#636363";
@@ -458,14 +455,5 @@ style.textContent = `
 document.head.appendChild(style);
 const gameWindow_player = document.getElementById("game_window");
 setupMusicPlayer();
-
-let z = new MutationObserver((mutationsList, observer) => {
-    let runningMateSummary = document.querySelector("#running_mate_summary");
-    if (runningMateSummary) {
-        $("#running_mate_id_button").click();
-        observer.disconnect()
-    }
-});
-z.observe(document, { subtree: true, childList: true });
-			
+		
 //#endcode
